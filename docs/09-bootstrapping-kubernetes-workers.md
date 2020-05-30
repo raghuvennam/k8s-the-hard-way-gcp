@@ -305,9 +305,9 @@ gcloud compute ssh controller-0 \
 
 ```
 NAME       STATUS   ROLES    AGE   VERSION
-worker-0   Ready    <none>   15s   v1.15.3
-worker-1   Ready    <none>   15s   v1.15.3
-worker-2   Ready    <none>   15s   v1.15.3
+worker-0   Ready    <none>   15s   v1.18.3
+worker-1   Ready    <none>   15s   v1.18.3
+worker-2   Ready    <none>   15s   v1.18.3
 ```
 
 Next: [Configuring kubectl for Remote Access](10-configuring-kubectl.md)

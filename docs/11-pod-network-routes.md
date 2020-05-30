@@ -33,7 +33,7 @@ Create network routes for each worker instance:
 
 ```
 for i in `seq 0 2`; do
-  gcloud compute routes create kubernetes-route-10-200-${i}-0-24 \
+  gcloud compute routes create k8s-route-10-200-${i}-0-24 \
     --network k8s-the-hard-way \
     --next-hop-address 10.240.0.2${i} \
     --destination-range 10.200.${i}.0/24
@@ -50,11 +50,11 @@ gcloud compute routes list --filter "network: k8s-the-hard-way"
 
 ```
 NAME                            NETWORK                  DEST_RANGE     NEXT_HOP                  PRIORITY
-default-route-081879136902de56  k8s-the-hard-way  10.240.0.0/24  k8s-the-hard-way   1000
-default-route-55199a5aa126d7aa  k8s-the-hard-way  0.0.0.0/0      default-internet-gateway  1000
-kubernetes-route-10-200-0-0-24  k8s-the-hard-way  10.200.0.0/24  10.240.0.20               1000
-kubernetes-route-10-200-1-0-24  k8s-the-hard-way  10.200.1.0/24  10.240.0.21               1000
-kubernetes-route-10-200-2-0-24  k8s-the-hard-way  10.200.2.0/24  10.240.0.22               1000
+default-route-081879136902de56  k8s-the-hard-way  10.240.0.0/24  k8s-the-hard-way                 1000
+default-route-55199a5aa126d7aa  k8s-the-hard-way  0.0.0.0/0      default-internet-gateway         1000
+k8s-route-10-200-0-0-24         k8s-the-hard-way  10.200.0.0/24  10.240.0.20                      1000
+k8s-route-10-200-1-0-24         k8s-the-hard-way  10.200.1.0/24  10.240.0.21                      1000
+k8s-route-10-200-2-0-24         k8s-the-hard-way  10.200.2.0/24  10.240.0.22                      1000
 ```
 
 Next: [Deploying the DNS Cluster Add-on](12-dns-addon.md)

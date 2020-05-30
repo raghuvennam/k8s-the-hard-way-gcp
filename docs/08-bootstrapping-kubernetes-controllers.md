@@ -361,7 +361,7 @@ Create the external load balancer network resources:
     --host "kubernetes.default.svc.cluster.local" \
     --request-path "/healthz"
 
-  gcloud compute firewall-rules create k8s-the-hard-way-allow-health-check \
+  gcloud compute firewall-rules create k8s-allow-lb-health-check \
     --network k8s-the-hard-way \
     --source-ranges 209.85.152.0/22,209.85.204.0/22,35.191.0.0/16 \
     --allow tcp
@@ -404,7 +404,7 @@ curl --cacert ca.pem https://${KUBERNETES_PUBLIC_ADDRESS}:6443/version
 {
   "major": "1",
   "minor": "15",
-  "gitVersion": "v1.15.3",
+  "gitVersion": "v1.18.3",
   "gitCommit": "2d3c76f9091b6bec110a5e63777c332469e0cba2",
   "gitTreeState": "clean",
   "buildDate": "2019-08-19T11:05:50Z",

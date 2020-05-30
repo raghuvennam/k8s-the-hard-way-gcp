@@ -26,31 +26,39 @@ Delete the external load balancer network resources:
 
   gcloud -q compute http-health-checks delete kubernetes
 
-  gcloud -q compute addresses delete kubernetes-the-hard-way
+  gcloud -q compute addresses delete k8s-the-hard-way
 }
 ```
 
-Delete the `kubernetes-the-hard-way` firewall rules:
+Delete the `k8s-the-hard-way` firewall rules:
 
 ```
 gcloud -q compute firewall-rules delete \
-  kubernetes-the-hard-way-allow-nginx-service \
-  kubernetes-the-hard-way-allow-internal \
-  kubernetes-the-hard-way-allow-external \
-  kubernetes-the-hard-way-allow-health-check
+  allow-ssh-ingress-from-iap \
+  k8s-allow-nginx-service \
+  k8s-allow-internal \
+  k8s-allow-external \
+  k8s-allow-lb-health-check
 ```
 
-Delete the `kubernetes-the-hard-way` network VPC:
+Delete the Cloud NAT
+
+```
+gcloud -q compute routers delete nat-router
+```
+
+
+Delete the `k8s-the-hard-way` network VPC:
 
 ```
 {
   gcloud -q compute routes delete \
-    kubernetes-route-10-200-0-0-24 \
-    kubernetes-route-10-200-1-0-24 \
-    kubernetes-route-10-200-2-0-24
+    k8s-route-10-200-0-0-24 \
+    k8s-route-10-200-1-0-24 \
+    k8s-route-10-200-2-0-24
 
-  gcloud -q compute networks subnets delete kubernetes
+  gcloud -q compute networks subnets delete cka
 
-  gcloud -q compute networks delete kubernetes-the-hard-way
+  gcloud -q compute networks delete k8s-the-hard-way
 }
 ```
